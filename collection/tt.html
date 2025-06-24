@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time-pieces Collection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Basic Reset & Body Styles (Keep As Is) --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background-color: #1a1a1a; color: #f0f0f0; line-height: 1.6; overflow-x: hidden; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* --- Typography Base (Keep As Is, H2 styled per section) --- */
+        h1, h2 { font-family: 'Playfair Display', serif; font-weight: 600; margin-bottom: 1rem; }
+        h1 { font-style: italic; font-size: 4.5rem; /* Adjust as needed */ }
+        h2 { font-size: 2.5rem; color: #e0e0e0; margin-bottom: 0; }
+        p { font-size: 1rem; font-weight: 300; margin-bottom: 1rem; color: #c0c0c0; }
+
+        /* --- Hero Section (Keep As Is) --- */
+        .hero { position: relative; height: 100vh; width: 100%; overflow: hidden; display: flex; justify-content: center; align-items: center; text-align: center; margin-bottom: 0; }
+        .hero-video-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        .hero-video { width: 100%; height: 100%; object-fit: cover; opacity: 0.75; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 2; }
+        .hero-content { position: relative; z-index: 3; padding: 2rem; max-width: 1200px; }
+        .main-title { font-size: 4.5rem; margin-bottom: 1.5rem; color: #ffffff; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7); }
+        .hero-subtitle { font-family: 'Playfair Display', serif; font-size: 2rem; font-style: italic; color: #e0e0e0; margin-bottom: 2rem; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7); }
+
+        /* --- Collection Item (Classic/Sports - Keep As Is) --- */
+        .collection-item { display: flex; align-items: center; justify-content: space-around; padding: 4rem 5%; gap: 2rem; margin-bottom: 2rem; min-height: 40vh; max-width: 1200px; margin-left: auto; margin-right: auto; }
+        .collection-item .image-container, .collection-item .text-container { flex: 1; max-width: 450px; }
+        .collection-item .image-container img { max-height: 300px; width: auto; margin: 0 auto; filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1)); }
+        .classic-collection, .sports-collection { background-color: #e9e9e9; border-radius: 20px; }
+        .classic-collection h2, .classic-collection p, .sports-collection h2, .sports-collection p { color: #333; }
+        .classic-collection h2, .sports-collection h2 { font-family: 'Roboto', sans-serif; font-style: normal; font-weight: 700; font-size: 2.2rem; margin-bottom: 1.5rem; }
+        .classic-collection p, .sports-collection p { font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 1rem; line-height: 1.5; color: #444; margin-bottom: 0; }
+
+        /* --- Heritage Collection (Keep As Is) --- */
+        .heritage-collection { padding: 4rem 5%; margin-bottom: 2rem; max-width: 1200px; margin-left: auto; margin-right: auto; }
+        .heritage-collection-top { display: flex; align-items: stretch; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .heritage-collection .image-container-large { flex: 1.8; max-width: 65%; }
+        .heritage-collection .image-container-large img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; display: block; }
+        .heritage-collection .heading-container { flex: 1; background-color: #2f2f2f; border-radius: 20px; padding: 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .heritage-collection .heading-container h2 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; font-size: 3rem; color: #e0e0e0; line-height: 1.2; }
+        .heritage-collection .description-container { background-color: #2f2f2f; border-radius: 20px; padding: 1.5rem 2rem; text-align: center; }
+        .heritage-collection .description-container p { font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 1.1rem; color: #e0e0e0; margin-bottom: 0; line-height: 1.5; }
+
+        /* --- Base Full Width Section Styles - Adjusted --- */
+        .collection-full {
+            margin-bottom: 2rem;
+            position: relative; /* Keep for potential absolute children if needed later */
+            /* line-height: 0; Removed as it might affect flex centering */
+        }
+
+        /* --- START Minimalist Collection USING DIRECT IMAGE --- */
+        .minimalist-collection {
+            background-color: #000; /* Ensure background for any slivers */
+             line-height: 0; /* Keep here to prevent space below image */
+        }
+
+        .minimalist-collection .minimalist-section-image {
+            display: block; /* Remove extra space */
+            margin: 0 auto; /* Center the image horizontally */
+            max-width: 100%; /* Make responsive */
+            height: auto; /* Maintain aspect ratio */
+        }
+        /* --- END Minimalist Collection USING DIRECT IMAGE --- */
+
+
+               /* --- START Exclusive Collection Redesign --- */
+               .exclusive-collection {
+            /* ... (keep existing styles: background-image, size, position, min-height, flex properties, text-align, border-radius) ... */
+            background-image: url('6.jpg');
+            background-size: cover;
+            background-position: center center;
+            min-height: 65vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-radius: 5px;
+         }
+
+         .exclusive-text-banner {
+             background-color: rgba(40, 40, 40, 0.65); /* Semi-transparent dark grey */
+             padding: 0.8rem 2.5rem;
+             border-radius: 30px;
+             display: inline-block;
+             backdrop-filter: blur(3px); /* Optional */
+             cursor: pointer; /* Add pointer cursor to indicate interactivity */
+             /* --- Add Transition --- */
+             transition: background-color 0.3s ease, transform 0.3s ease;
+         }
+
+         /* --- Add Hover Effect --- */
+         .exclusive-text-banner:hover {
+             background-color: rgba(20, 20, 20, 0.8); /* Darker, less transparent */
+             transform: scale(1.05); /* Slightly larger */
+         }
+
+        /* Style the H2 specifically within this section's banner */
+        .exclusive-collection h2 {
+            /* ... (keep existing styles: font-family, weight, style, size, color, margin, text-transform) ... */
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin: 0;
+            text-transform: lowercase;
+             /* Ensure h2 transition is smooth if needed, but usually not necessary */
+             /* transition: color 0.3s ease; */
+        }
+        /* --- END Exclusive Collection Redesign --- */
+
+        /* --- Animation Styles (Keep As Is) --- */
+        .animate-on-scroll { opacity: 0; transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in { transform: translateY(30px); }
+        .slide-in-left { transform: translateX(-50px); }
+        .slide-in-right { transform: translateX(50px); }
+        .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0) translateX(0); }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            /* --- Base Mobile Styles (Keep As Is) --- */
+            h1 { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.5rem; }
+            h2 { font-size: 2rem; } /* Default mobile H2 */
+            .collection-item { flex-direction: column; padding: 3rem 5%; text-align: center; }
+            .collection-item .image-container, .collection-item .text-container { max-width: 100%; flex: none; margin-bottom: 1.5rem; }
+            .collection-item .image-container img { max-height: 200px; }
+            .classic-collection h2, .sports-collection h2 { font-size: 1.8rem; }
+
+            /* --- Heritage Mobile (Keep As Is) --- */
+            .heritage-collection { padding: 3rem 5%; }
+            .heritage-collection-top { flex-direction: column; align-items: center; margin-bottom: 1.5rem; }
+            .heritage-collection .image-container-large { max-width: 100%; margin-bottom: 1.5rem; height: auto; flex: none; }
+            .heritage-collection .image-container-large img{ max-height: 300px; width: auto; margin: 0 auto; }
+            .heritage-collection .heading-container { width: 100%; padding: 1.5rem; flex: none; }
+            .heritage-collection .heading-container h2 { font-size: 2.2rem; }
+            .heritage-collection .description-container { padding: 1rem 1.5rem; }
+            .heritage-collection .description-container p { font-size: 1rem; }
+
+            /* --- Minimalist Mobile (Image will just scale) --- */
+            /* No specific styles needed */
+
+             /* --- Exclusive Mobile --- */
+             .exclusive-collection {
+                 min-height: 45vh; /* Shorter height on mobile */
+             }
+             .exclusive-text-banner {
+                 padding: 0.6rem 1.8rem; /* Smaller padding */
+             }
+             .exclusive-collection h2 {
+                 font-size: 1.6rem; /* Smaller font size */
+             }
+
+            /* --- Other Mobile Styles (Keep As Is) --- */
+            .slide-in-left, .slide-in-right { transform: translateY(30px) translateX(0); }
+            .hero { height: 70vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <!-- ... Hero content ... -->
+         <div class="hero-video-container">
+            <video class="hero-video" autoplay loop muted playsinline>
+                <source src="0.mp4" type="video/mp4">
+                <img src="1.jpg" alt="A collection of various timepieces">
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content animate-on-scroll fade-in">
+            <h1 class="main-title">Time-pieces-collection</h1>
+            <p class="hero-subtitle">Elegance in every second</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Classic Collection -->
+        <section class="collection-item classic-collection">
+            <!-- ... Classic content ... -->
+             <div class="image-container animate-on-scroll slide-in-left">
+                <img src="2.png" alt="Classic Chronograph Watch with Leather Strap">
+            </div>
+            <div class="text-container animate-on-scroll slide-in-right">
+                <h2>Classic Collection</h2>
+                <p>A timeless blend of elegance and sophistication</p>
+                <p>the Classic Collection features minimalist designs, refined details versatile styles perfect for any occasion.</p>
+            </div>
+        </section>
+
+        <!-- Sports Collection -->
+        <section class="collection-item sports-collection">
+             <!-- ... Sports content ... -->
+               <div class="text-container animate-on-scroll slide-in-left">
+                <h2>Sports Collection</h2>
+                 <p>Built for performance and style</p>
+                <p>the Sports Collection combines durability precision, and dynamic design–perfect for an active lifestyle on and off the field.</p>
+            </div>
+             <div class="image-container animate-on-scroll slide-in-right">
+                <img src="3.png" alt="Modern Smartwatch for Sports">
+            </div>
+        </section>
+
+        <!-- Heritage Collection -->
+        <section class="heritage-collection">
+           <!-- ... Heritage content ... -->
+              <div class="heritage-collection-top animate-on-scroll fade-in">
+                <div class="image-container-large">
+                     <img src="5.jpeg" alt="Close up detail of a Heritage Collection watch face">
+                </div>
+                 <div class="heading-container">
+                    <h2>Heritage Collection</h2>
+                </div>
+            </div>
+            <div class="description-container animate-on-scroll fade-in">
+                <p>Inspired by our archives, these timepieces celebrate our rich history and watchmaking tradition.</p>
+            </div>
+        </section>
+
+         <!-- Minimalist Collection - USING DIRECT IMAGE -->
+         <section class="collection-full minimalist-collection animate-on-scroll fade-in">
+             <img src="minilist collection.png"
+                  alt="Minimalist Watch Collection section showing title, description, and showcase"
+                  class="minimalist-section-image">
+             <!-- NOTE: Accessibility/Responsiveness drawbacks apply -->
+        </section>
+
+        <!-- Exclusive Collection - REDESIGNED -->
+        <section class="collection-full exclusive-collection animate-on-scroll fade-in">
+             <div class="exclusive-text-banner">
+                 <h2>exclusive collection</h2>
+             </div>
+             <!-- The background image is set via CSS -->
+             <!-- The old img container is hidden via CSS -->
+             <!-- <div class="image-container-showcase animate-on-scroll fade-in">
+                 <img src="6.jpg" alt="Showcase of Exclusive Watches">
+             </div> -->
+        </section>
+    </main>
+
+    <script>
+       // --- Intersection Observer Script (Keep As Is) ---
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observerCallback = (entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); /* observer.unobserve(entry.target); */ } }); };
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+        elementsToAnimate.forEach(el => { observer.observe(el); });
+        document.addEventListener('DOMContentLoaded', function() { const heroContent = document.querySelector('.hero-content'); if (heroContent) { setTimeout(function() { heroContent.classList.add('is-visible'); }, 300); } });
+    </script>
+
+</body>
+</html>
