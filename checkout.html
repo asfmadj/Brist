@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - BRIST</title>
+    <link rel="stylesheet" href="checkout-style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="checkout-container">
+        <div class="order-summary">
+            <div class="logo-header">
+                <a href="index.html" class="logo"><img src="cm.png" height="50" alt="BRIST Logo"></a>
+            </div>
+            <h2>Pay BRIST</h2>
+            <p class="total-amount-display">₹0.00</p> <!-- Initial value, will be updated by JS -->
+            <div id="cart-items-summary">
+                <!-- Cart items will be injected here by JavaScript -->
+                <p>Loading cart...</p>
+            </div>
+            <div class="summary-totals">
+                <div class="summary-line">
+                    <span>Subtotal</span>
+                    <span id="subtotal-amount">₹0.00</span>
+                </div>
+                <div class="summary-line">
+                    <span>Shipping</span>
+                    <span id="shipping-amount">Free</span>
+                </div>
+                <div class="summary-line total">
+                    <span>Total due</span>
+                    <span id="total-due-amount">₹0.00</span>
+                </div>
+            </div>
+        </div>
+        <div class="payment-info">
+            <div class="payment-method-selection">
+                <button class="apple-pay-btn"><i class='bx bxl-apple'></i>Pay</button>
+                <p class="divider">Or pay with card</p>
+            </div>
+            <form id="checkout-form">
+                <div class="form-section">
+                    <h3>Shipping information</h3>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="shipping-address">Shipping address</label>
+                        <input type="text" id="name" name="name" placeholder="Name" required>
+                        <select id="country" name="country">
+                            <option value="IN">India</option>
+                            <option value="US">United States</option>
+                            <!-- Add more countries as needed -->
+                        </select>
+                        <input type="text" id="address" name="address" placeholder="Address" required>
+                        <!-- Consider adding fields for City, State, Postal Code for a real address -->
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3>Payment details</h3>
+                    <div class="form-group">
+                        <label for="card-number">Card information</label>
+                        <div class="card-input-wrapper">
+                            <input type="text" id="card-number" name="card-number" placeholder="1234 1234 1234 1234" required pattern="[\d\s]{13,19}" title="Enter a valid card number">
+                        </div>
+                         <div class="card-details-row">
+                            <input type="text" id="card-expiry" name="card-expiry" placeholder="MM / YY" required pattern="\d{2}\s*\/\s*\d{2}" title="MM / YY">
+                            <input type="text" id="card-cvc" name="card-cvc" placeholder="CVC" required pattern="\d{3,4}" title="3 or 4 digit CVC">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="same-as-shipping" name="same-as-shipping" checked>
+                    <label for="same-as-shipping">Billing address is same as shipping</label>
+                </div>
+                <button type="submit" class="pay-btn" disabled>Pay ₹0.00</button> <!-- Initially disabled -->
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container"></div>
+
+    <!-- 1. Supabase CDN Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- 2. Your Supabase client setup (implements window.showToast) -->
+    <script src="supabase-client.js"></script>
+    <!-- 3. Your checkout script -->
+    <script src="checkout-script.js"></script>
+</body>
+</html>

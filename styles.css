@@ -1,0 +1,727 @@
+/* Base Style */
+:root {
+    --primary: hsl(350,60%,45%);
+    --background: #000000;
+    --foreground: #ffffff;
+    --muted: #666666;
+    --accent: #1a1a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* NAVBAR STYLES MOVED to navbar-styles.css */
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 0 1rem;
+    max-width: 600px;
+    margin-left: 10%; /* Push text slightly to the right */
+    /* Ensure hero content is within the main page container if navbar is also in container */
+    /* If navbar is full-width and hero content should align with a centered container: */
+    /* margin-left: auto; margin-right: auto; padding-left: calc((100vw - 1200px) / 2 + 1rem); */ /* Complex alignment */
+}
+/* Simpler approach for hero content alignment if navbar has max-width 1200px and centered */
+@media (min-width: 1200px) { /* Assuming 1200px is your max-width for .nav-container */
+    .hero-content {
+         /* Adjust margin-left if .nav-container is centered and has max-width */
+         /* Example: calc((100% - 1200px)/2 + 100px) if 1200px is container width & 100px desired inner margin */
+         /* Or simply ensure it's within the .container if the hero section uses one */
+    }
+}
+
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: bold;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero-text {
+    font-size: 1.125rem;
+    color: #cccccc;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 4px; /* Added for consistency */
+}
+
+.cta-button:hover {
+    background-color: hsl(350, 60%, 40%);
+}
+
+/* Collection Section with Carousel Styles */
+.collections {
+    padding: 8rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.section-description { /* This class is used in multiple places, ensure it's general */
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    color: #cccccc;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.card-overlay .collection-description { /* Specific to card overlay */
+    font-size: 1.1rem; /* Can be adjusted if needed */
+    line-height: 1.6;
+    color: #cccccc;
+    max-width: 90%;
+    margin-top: 1.5rem;
+    text-align: left; /* Override general .section-description */
+}
+
+
+/* Carousel Controls */
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem; /* Original: margin-top: 2rem; */
+    gap: 1rem;
+}
+
+.carousel-arrow {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: var(--foreground);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-arrow i {
+    font-size: 1.5rem;
+}
+
+.carousel-arrow:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.carousel-indicators {
+    display: flex;
+    gap: 8px;
+    margin: 0 1rem;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background-color: var(--primary);
+    transform: scale(1.2);
+}
+
+/* Carousel Container and Slides */
+.collection-carousel-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding: 1rem 0;
+}
+
+.collection-carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%; /* This will be dynamically set by JS for multiple slides */
+    height: 600px; 
+}
+
+.collection-slide {
+    min-width: 100%; /* Default for 1 slide visible */
+    flex: 0 0 100%;   /* Default for 1 slide visible */
+    padding: 0 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease; /* For hover effects on slide */
+}
+
+/* Card Styling */
+.card-image {
+    position: relative;
+    height: 580px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease; /* For hover on card image */
+}
+
+.card-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(0,0,0,0.2), rgba(0,0,0,0));
+    z-index: 1;
+    pointer-events: none;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease, filter 0.4s ease;
+}
+
+.collection-slide:hover .card-image img {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
+    padding: 4rem 2rem 2rem;
+    z-index: 2;
+    color: var(--foreground); /* Ensure text is visible */
+}
+
+.card-overlay h3 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.card-overlay h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.collection-slide:hover .card-overlay h3::after {
+    width: 100px;
+}
+
+.collection-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary);
+    text-decoration: none;
+    margin-top: 1.5rem;
+    font-weight: 500;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.collection-link i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.collection-link:hover {
+    opacity: 1;
+}
+
+.collection-link:hover i {
+    transform: translateX(5px);
+}
+
+/* Collection Footer */
+.collection-footer {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.collection-footer p {
+    margin-bottom: 1.5rem;
+    color: #cccccc;
+}
+
+.view-all-button {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--foreground);
+    border: 1px solid var(--primary);
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.view-all-button:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* For Desktop: Multiple slides view for Carousel */
+@media (min-width: 1200px) {
+    .collection-slide {
+        min-width: calc(100% / 3); /* Adjust based on numVisibleSlides in JS */
+        flex: 0 0 calc(100% / 3);
+    }
+    .card-image { height: 550px; }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .collection-slide {
+        min-width: calc(100% / 2); /* Adjust based on numVisibleSlides in JS */
+        flex: 0 0 calc(100% / 2);
+    }
+    .card-image { height: 500px; }
+}
+
+@media (max-width: 767px) {
+    .collections { padding: 5rem 0; }
+    .section-title { font-size: 2.2rem; }
+    .carousel-controls { margin-bottom: 2rem; }
+    .collection-carousel { height: 500px; } /* Adjust if slide content changes height */
+    .card-image { height: 450px; }
+    .card-overlay h3 { font-size: 1.8rem; }
+    .card-overlay .collection-description { font-size: 1rem; } /* Card specific description */
+}
+
+@media (hover: none) { /* Touch-friendly adjustments */
+    .card-overlay { padding: 2rem; }
+}
+
+
+/* Newsletter Section */
+.newsletter {
+    padding: 5rem 0;
+    background-color: var(--accent);
+    text-align: center;
+}
+
+.newsletter-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter .section-title { /* If newsletter also uses .section-title */
+    margin-bottom: 1rem; /* Adjust as needed */
+}
+
+.newsletter p { /* General p within newsletter */
+    margin-bottom: 2rem;
+    color: var(--muted);
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start; /* Align items to the top in case error message pushes input up */
+}
+
+.form-group {
+    flex: 1;
+    position: relative; /* For error message positioning */
+}
+
+.newsletter input[type="email"] { /* More specific selector */
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--foreground);
+    border-radius: 4px;
+    font-size: 1rem; /* Ensure consistent font size */
+}
+
+.newsletter input[type="email"]::placeholder {
+    color: var(--muted);
+}
+
+.error-message {
+    color: var(--primary);
+    font-size: 0.875rem;
+    position: absolute;
+    /* bottom: -1.5rem; Removed to prevent overlap, let it flow naturally or adjust top margin */
+    top: calc(100% + 0.25rem); /* Position below the input */
+    left: 0;
+    text-align: left; /* Ensure error message is left-aligned */
+    display: block; /* Ensure it takes up space */
+    width: 100%;
+}
+
+.submit-button { /* Already styled for CTA, ensure consistency */
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    font-size: 1rem; /* Consistent font size */
+}
+
+.submit-button:hover {
+    background-color: hsl(350, 60%, 40%);
+}
+
+/* Animation Classes */
+.fade-in { /* General fade-in for Intersection Observer */
+    opacity: 1 !important; /* Override initial section opacity */
+    transform: translateY(0) !important; /* Override initial section transform */
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section { /* Initial state for Intersection Observer fade-in */
+    opacity: 0;
+    transform: translateY(20px);
+}
+/* AOS animations will override these if AOS targets sections directly */
+/* If using AOS for sections, you might not need the manual IntersectionObserver 'section' styling */
+
+
+/* Responsive Design - General (Navbar specific media queries are in navbar-styles.css) */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    .hero-content {
+        margin-left: 5%; /* Adjust for smaller screens */
+        margin-right: 5%;
+        max-width: 90%;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+    .newsletter-form .form-group,
+    .newsletter-form .submit-button {
+        width: 100%; /* Make input group and button full-width */
+    }
+    .newsletter-form .form-group {
+        margin-bottom: 2rem; /* Space for error message before button */
+    }
+
+    /* .collection-grid was mentioned in thoughts but not present in original CSS, so no rule to adjust here */
+}
+
+/* Older Collection Slider Styles (from original styles.css) */
+/* These styles seem to be for a different slider implementation than the new carousel */
+/* If they are not used, they can be removed. I'm keeping them for now. */
+.slide-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    margin: 2rem auto; /* Added some margin */
+}
+
+.collections .slide .item { /* This targets .collections > .slide > .item */
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    border-radius: 8px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    background-position: center;
+    background-size: cover;
+    display: inline-block; /* This might conflict with flex display of carousel */
+    transition: 0.5s;
+}
+
+/* Positioning for the older slider */
+.collections .slide .item:nth-child(1),
+.collections .slide .item:nth-child(2) {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+.collections .slide .item:nth-child(3) { left: 50%; }
+.collections .slide .item:nth-child(4) { left: calc(50% + 220px); }
+.collections .slide .item:nth-child(5) { left: calc(50% + 440px); }
+.collections .slide .item:nth-child(n + 6) {
+    left: calc(50% + 660px);
+    opacity: 0;
+}
+
+.collections .item .content {
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    width: 300px;
+    text-align: left;
+    color: var(--foreground);
+    transform: translate(0, -50%);
+    display: none; /* Hidden by default */
+    z-index: 10; /* Ensure it's above image */
+}
+
+.collections .slide .item:nth-child(2) .content {
+    display: block; /* Show content for the 'active' slide in this old model */
+}
+
+.collections .content .name {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    opacity: 0;
+    animation: animateContent 1s ease-in-out 1 forwards;
+}
+
+.collections .content .des {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: animateContent 1s ease-in-out 0.3s 1 forwards;
+}
+
+.collections .content button {
+    padding: 1rem 2rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 0;
+    animation: animateContent 1s ease-in-out 0.6s 1 forwards;
+    transition: background-color 0.3s ease;
+    border-radius: 4px; /* Added */
+}
+
+.collections .content button:hover {
+    background-color: hsl(350, 60%, 40%);
+}
+
+@keyframes animateContent { /* Renamed to avoid conflict if 'animate' is generic */
+    from {
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+/* Navigation buttons for the older slider */
+.collections .button { /* This class seems for the older slider's buttons */
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+    z-index: 10;
+}
+
+.collections .button button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: 0.3s;
+    display: inline-flex; /* Changed from flex to inline-flex for horizontal layout */
+    align-items: center;
+    justify-content: center;
+}
+
+.collections .button button i {
+    font-size: 1.25rem;
+}
+
+.collections .button button:hover {
+    background-color: var(--primary);
+}
+
+/* Add this to styles.css OR navbar-styles.css */
+
+/* Toast Notification Styles */
+#toast-container {
+    position: fixed;
+    top: 80px; /* Adjusted to be below a potentially fixed navbar */
+    right: 20px;
+    z-index: 9999; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end; 
+}
+
+.toast {
+    background-color: #333; 
+    color: #fff;
+    padding: 12px 20px; /* Adjusted padding */
+    border-radius: 6px; /* Softer radius */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Softer shadow */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    min-width: 280px; /* Slightly wider */
+    max-width: 380px;
+    font-family: 'Inter', sans-serif; 
+    font-size: 0.9rem;
+    border-left: 5px solid transparent; 
+    transform: translateX(110%); /* Start further off-screen */
+    transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out; /* Smoother transition */
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* This class will be added to trigger the fade-out manually if needed,
+   or before removing after duration. */
+.toast.fade-out { 
+    opacity: 0 !important; /* Ensure it fades out */
+    transform: translateX(110%) !important; /* Slide out again */
+}
+
+
+.toast.success {
+    background-color: #2a3f2b; /* Darker green */
+    border-left-color: #4CAF50; /* Brighter green accent */
+    color: #e6fff0;
+}
+
+.toast.error {
+    background-color: #4d2a2a; /* Darker red */
+    border-left-color: #f44336; /* Brighter red accent */
+    color: #ffe6e6;
+}
+
+.toast.warning {
+    background-color: #4d442a; /* Darker yellow/orange */
+    border-left-color: #ffc107; 
+    color: #212529; 
+}
+
+.toast.info {
+    background-color: #2a3a4d; /* Darker info blue */
+    border-left-color: #17a2b8; 
+    color: #e6f7ff;
+}
+
+.toast-icon {
+    font-size: 1.3rem; /* Slightly larger icon */
+    flex-shrink: 0;
+    line-height: 1; /* Ensure icon vertical alignment */
+}
+
+.toast-message {
+    flex-grow: 1;
+    line-height: 1.4;
+    word-break: break-word; /* Prevent long messages from breaking layout */
+}
+
+.toast-close-btn {
+    background: none;
+    border: none;
+    color: inherit; 
+    font-size: 1.4rem; /* Larger close button */
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 0 0 10px; 
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    margin-left: auto; /* Push to the far right */
+}
+
+.toast-close-btn:hover {
+    opacity: 1;
+}
+
+.toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.4); /* Progress bar color */
+    width: 100%;
+    /* Animation will be set by JS */
+}
+
+@keyframes toast-progress-animation {
+    from { width: 100%; }
+    to { width: 0%; }
+}

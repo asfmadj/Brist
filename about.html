@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Brist - Design Your Wrist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="navbar-styles.css">
+    <link rel="stylesheet" href="about-style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="cm.png" alt="BRIS - Design Your Wrist" class="logo-image">
+            </a>
+            <div class="nav-links desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="Collection.html">Collections</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">
+                    <i class='bx bx-heart'></i>
+                    <span class="icon-badge" id="wishlistBadge">0</span>
+                </button>
+                <a href="login.html" class="icon-btn user-icon" aria-label="User Profile/Login">
+                    <i class='bx bx-user'></i>
+                </a>
+                <button class="icon-btn" id="cartBtn" aria-label="Shopping Cart">
+                    <i class='bx bx-cart'></i>
+                    <span class="icon-badge" id="cartBadge">0</span>
+                </button>
+                <button class="menu-btn" id="menuBtn" aria-label="Toggle Menu">
+                    <i class='bx bx-menu'></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <a href="Collection.html">Collections</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
+    <!-- Favorites Sliding Panel -->
+    <div class="slide-panel" id="favoritesPanel">
+        <div class="slide-panel-header">
+            <h3>My Favorites</h3>
+            <button class="icon-btn close-panel-btn" id="closeFavoritesPanelBtn" aria-label="Close Favorites">
+                <i class='bx bx-x'></i>
+            </button>
+        </div>
+        <div class="slide-panel-content">
+            <p class="empty-message">Your favorites list is currently empty.</p>
+        </div>
+    </div>
+
+    <!-- Cart Sliding Panel -->
+    <div class="slide-panel" id="cartPanel">
+        <div class="slide-panel-header">
+            <h3>Shopping Cart</h3>
+            <button class="icon-btn close-panel-btn" id="closeCartPanelBtn" aria-label="Close Cart">
+                <i class='bx bx-x'></i>
+            </button>
+        </div>
+        <div class="slide-panel-content">
+            <p class="empty-message">Your shopping cart is currently empty.</p>
+        </div>
+        <div class="slide-panel-footer">
+            <div class="subtotal">
+                <span>Subtotal:</span>
+                <span>$0.00</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+    <!-- End of Navbar HTML components -->
+
+    <header class="about-header">
+        <div class="container">
+            <h1>Brist: Design Your Wrist</h1>
+            <p class="subtitle">Welcome to Brist, where timekeeping transcends utility to become a true extension of your personal narrative. We believe your watch should be as unique as you are, a meticulously crafted statement of your individuality.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-section intro-paragraph" style="padding-top: 60px; padding-bottom: 30px; border-bottom:none;">
+            <div class="container">
+                 <p style="text-align: center; font-size: 1.25rem; max-width: 850px; margin: 0 auto; color: var(--color-text-primary);" data-animate>
+                    At Brist, we embark on a shared journey with you – to translate personal stories and distinct styles into exceptional timepieces. It's more than watchmaking; it's the art of personal expression, realized with precision and passion.
+                </p>
+            </div>
+        </section>
+
+        <section class="about-section" id="our-story">
+            <div class="container">
+                <h2 class="section-title" data-animate>The Brist Genesis</h2>
+                <div class="content-grid two-col">
+                    <div class="text-content" data-animate data-delay="0.2s">
+                        <p><strong>Brist was born from a desire to redefine personal expression in horology.</strong> Founded in [Year] by [Founder's Name], our journey began not in a traditional workshop, but from an idea: that a watch is a canvas, and the wearer, the artist.</p>
+                        <p>Frustrated by the homogeneity of mass-produced timepieces, [Founder's Name] envisioned a brand where <span class="highlight">individuality takes center stage</span>. The mission was clear: to empower discerning individuals to "Design Your Wrist" – to create a timepiece that is a genuine reflection of their style, story, and spirit.</p>
+                        <p>From initial sketches focusing on customizable elements to partnering with master craftsmen who could bring these visions to life, Brist has always been about the collaborative art of watchmaking. We are more than a brand; we are a platform for your unique expression.</p>
+                    </div>
+                    <div class="image-content" data-animate data-delay="0.4s">
+                        <img src="ab/x.jpeg" alt="Brist design sketches and tools">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section alt-bg" id="our-philosophy">
+            <div class="container">
+                <h2 class="section-title" data-animate>Our Design Philosophy</h2>
+                <div class="content-grid two-col image-left">
+                     <div class="image-content" data-animate data-delay="0.4s">
+                        <img src="ab/z.jpeg" alt="Close-up of a Brist watch customization">
+                    </div>
+                    <div class="text-content" data-animate data-delay="0.2s">
+                        <p>At Brist, "Design Your Wrist" is not just a motto; it's the core of our philosophy, guiding every choice we make:</p>
+                        <p><strong>Individuality as the Standard:</strong> We champion uniqueness. Our platform offers a curated yet expansive range of choices—from case finishes and dial textures to strap materials and subtle personal engravings—allowing you to craft a timepiece that is exclusively yours.</p>
+                        <p><strong>Purity of Design:</strong> We believe in clean lines, balanced proportions, and intuitive aesthetics. Our foundational designs are timeless, providing the perfect elegant base for your personal touches, ensuring your Brist watch is both contemporary and enduring.</p>
+                        <p><strong>Masterful Execution:</strong> Your design deserves flawless execution. We partner with skilled artisans and utilize premium materials, ensuring that every customized Brist timepiece meets rigorous standards of quality, durability, and precision. <span class="highlight">Your vision, impeccably crafted.</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" id="our-values">
+            <div class="container">
+                <h2 class="section-title" data-animate>Our Core Values</h2>
+                <div class="values-grid">
+                    <div class="value-card" data-animate data-delay="0.1s">
+                        <div class="icon-wrapper"><span class="icon">🎯</span></div>
+                        <h3>Precision</h3>
+                        <p>In design and mechanics, every detail is considered and refined to achieve perfect harmony and reliable performance.</p>
+                    </div>
+                    <div class="value-card" data-animate data-delay="0.25s">
+                         <div class="icon-wrapper"><span class="icon">🎨</span></div>
+                        <h3>Expression</h3>
+                        <p>We provide the tools and inspiration for you to articulate your unique identity through the art of watch design.</p>
+                    </div>
+                    <div class="value-card" data-animate data-delay="0.4s">
+                         <div class="icon-wrapper"><span class="icon">🛠️</span></div>
+                        <h3>Craft</h3>
+                        <p>Honoring the heritage of watchmaking through meticulous craftsmanship and the use of enduring, quality materials.</p>
+                    </div>
+                    <div class="value-card" data-animate data-delay="0.55s">
+                         <div class="icon-wrapper"><span class="icon">🤝</span></div>
+                        <h3>Connection</h3>
+                        <p>Fostering a collaborative relationship with our clients, turning the process of designing a watch into a shared journey.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section team-section alt-bg" id="our-team">
+            <div class="container">
+                <h2 class="section-title" data-animate>Meet The Brist Team</h2>
+                 <div class="team-grid">
+                    <div class="team-member" data-animate data-delay="0.1s">
+                        <img src="ab/Dev (2).jpg" alt="[Dev Sharma]">
+                        <h4>[Dev Sharma]</h4>
+                        <p class="role">Founder & Visionary</p>
+                        <p class="bio-snippet">"I believe the most beautiful designs are co-created. Brist is about empowering that creative spark in everyone."</p>
+                    </div>
+                    <div class="team-member" data-animate data-delay="0.25s">
+                        <img src="ab/Aliena.jpeg" alt="[Alina]">
+                        <h4>[Alina]</h4>
+                        <p class="role">Lead Product Designer</p>
+                        <p class="bio-snippet">"My passion lies in creating frameworks for beauty—elegant canvases that invite personal storytelling."</p>
+                    </div>
+                    <div class="team-member" data-animate data-delay="0.4s">
+                        <img src="ab/n.jpg" alt="[Marcus Thorne]">
+                        <h4>[Marcus Thorne]</h4>
+                        <p class="role">Master Craftsman</p>
+                        <p class="bio-snippet">"Bringing a unique design to life, ensuring its quality and longevity, is a privilege I cherish with every piece."</p>
+                    </div>
+                     <div class="team-member" data-animate data-delay="0.55s">
+                        <img src="ab/sop.jpeg" alt="[Sophie Chen]">
+                        <h4>[Sophie Chen]</h4>
+                        <p class="role">Client Experience Lead</p>
+                        <p class="bio-snippet">"Guiding our clients through their design journey and seeing their excitement is the best part of my day."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="section-title" style="font-size: 2.4rem; margin-bottom: 35px;" data-animate>Begin Your Design Journey</h2>
+                <p style="color: var(--color-text-secondary); max-width: 700px; margin: 0 auto 45px; font-size: 1.2rem; line-height: 1.8;" data-animate data-delay="0.2s">
+                    Explore the possibilities and craft a Brist timepiece that is unmistakably you. Your wrist, your design, your statement.
+                </p>
+                <div data-animate data-delay="0.4s">
+                    <a href="Shop.html" class="cta-button">Explore Customization</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2024 Brist. Design Your Wrist.</p>
+    </footer>
+    
+        <!-- ... rest of shop.html body ... -->
+    <div id="toast-container"></div> <!-- Don't forget this! -->
+
+    <!-- SCRIPTS - ORDER IS IMPORTANT -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> 
+    <script src="supabase-client.js"></script> 
+    <script src="navbar-script.js"></script> 
+    <script src="about-script.js"></script>
+    <script>
+        if (typeof initializeNavbar === 'function') {
+            initializeNavbar();
+        }
+    </script>
+</body>
+</html>

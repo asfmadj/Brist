@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --background-color: #ffffff;
+    --text-color: #1a1a1a;
+    --border-color: #e6e6e6;
+    --primary-color: #007bff;
+    --secondary-text-color: #666666;
+    --container-bg-color: #f9f9f9;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.checkout-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    gap: 40px;
+}
+
+.order-summary, .payment-info {
+    flex: 1;
+}
+
+.order-summary {
+    background-color: var(--container-bg-color);
+    padding: 40px;
+    border-right: 1px solid var(--border-color);
+}
+
+.logo-header .logo {
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.order-summary h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.total-amount-display {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+#cart-items-summary .cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#cart-items-summary .item-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+#cart-items-summary .item-details p {
+    margin: 0;
+    font-size: 14px;
+}
+
+#cart-items-summary .item-details .item-name {
+    font-weight: 500;
+}
+
+#cart-items-summary .item-details .item-qty {
+    color: var(--secondary-text-color);
+}
+#cart-items-summary .item-price {
+    margin-left: auto;
+    font-weight: 500;
+}
+
+.summary-totals {
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.summary-line.total {
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.payment-info {
+    padding: 40px 20px;
+}
+
+.payment-method-selection {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.apple-pay-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 15px 20px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.apple-pay-btn .bx {
+    font-size: 24px;
+}
+
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    color: var(--secondary-text-color);
+    font-size: 12px;
+}
+
+#checkout-form h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.card-details-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input {
+    width: auto;
+    margin-right: 10px;
+}
+
+.pay-btn {
+    background-color: var(--text-color);
+    color: #fff;
+    border: none;
+    padding: 18px 20px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+} 

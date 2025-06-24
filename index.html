@@ -1,0 +1,158 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>BRIS - Luxury Watches</title>  
+
+    <link rel="stylesheet" href="styles.css"> <!-- Main styles (modified) -->
+    <link rel="stylesheet" href="navbar-styles.css"> <!-- Navbar specific styles -->
+
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">  
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>  
+<body>  
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->  
+    <section class="hero" data-observe-fade-in> 
+        <div class="video-container">  
+            <video autoplay loop muted playsinline> 
+                <source src="Landing-pg.mp4" type="video/mp4">  
+                Your browser does not support the video tag.
+            </video>  
+        </div>  
+        <div class="hero-content">  
+            <h1 class="hero-title">DESIGN<br>YOUR<br>WRIST</h1>  
+            <p class="hero-text">Discover our collection of timepieces that blend tradition with modern elegance.</p>  
+            <button class="cta-button" onclick="window.location.href='Collection.html'">Explore Collection</button>
+
+        </div>  
+    </section>  
+
+    <!-- Collections Section with Carousel -->  
+    <section class="collections" data-aos="fade-up"> 
+        <div class="container"> 
+            <h2 class="section-title" data-aos="fade-up">Discover Our Exquisite Collections</h2> 
+            <p class="section-description" data-aos="fade-up" data-aos-delay="100">Each of our meticulously crafted timepieces represents the perfect fusion of tradition, innovation, and unparalleled craftsmanship.</p>
+            
+            <div class="collection-carousel-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="collection-carousel">
+                    <!-- Slide 1 -->  
+                    <div class="collection-slide"> 
+                        <div class="card-image"> 
+                            <img src="https://images.unsplash.com/photo-1612177343582-665b93b34403?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Classic Collection">
+                            <div class="card-overlay"> 
+                                <h3>Classic Collection</h3>
+                                <p class="collection-description">Timeless elegance designed for the distinguished gentleman who appreciates heritage and sophistication.</p>
+                                <a href="Collection.html#classic" class="collection-link">Discover More <i class='bx bx-right-arrow-alt'></i></a>
+                            </div>  
+                        </div>  
+                    </div>  
+                    <!-- Slide 2 -->  
+                    <div class="collection-slide">  
+                        <div class="card-image">  
+                            <img src="https://images.unsplash.com/photo-1619134778706-7015533a6150?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sport Collection">  
+                            <div class="card-overlay">  
+                                <h3>Sport Collection</h3>
+                                <p class="collection-description">Dynamic and robust timepieces engineered to accompany you on all your adventures.</p>
+                                <a href="Collection.html#sport" class="collection-link">Discover More <i class='bx bx-right-arrow-alt'></i></a>
+                            </div>  
+                        </div>  
+                    </div>  
+                    <!-- Slide 3 -->  
+                    <div class="collection-slide">  
+                        <div class="card-image">  
+                            <img src="https://images.unsplash.com/photo-1619225379807-e9002c44c462?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Limited Edition">  
+                            <div class="card-overlay">  
+                                <h3>Limited Edition</h3>
+                                <p class="collection-description">Exclusive pieces crafted in numbered series, representing the pinnacle of our artisanal expertise.</p>
+                                <a href="Collection.html#limited" class="collection-link">Discover More <i class='bx bx-right-arrow-alt'></i></a>
+                            </div>  
+                        </div>  
+                    </div>
+                    <!-- Slide 4 -->  
+                    <div class="collection-slide">  
+                        <div class="card-image">  
+                            <img src="https://images.unsplash.com/photo-1587677958307-46c1f945b1af?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Heritage Collection">  
+                            <div class="card-overlay">  
+                                <h3>Heritage Collection</h3>
+                                <p class="collection-description">Inspired by our archives, these timepieces celebrate our rich history and watchmaking tradition.</p>
+                                <a href="Collection.html#heritage" class="collection-link">Discover More <i class='bx bx-right-arrow-alt'></i></a>
+                            </div>  
+                        </div>  
+                    </div>  
+                    <!-- Slide 5 -->  
+                    <div class="collection-slide">  
+                        <div class="card-image">  
+                            <img src="https://images.unsplash.com/photo-1585123334904-845d60e97b29?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Minimalist Collection">  
+                            <div class="card-overlay">  
+                                <h3>Minimalist Collection</h3>
+                                <p class="collection-description">Clean lines and subtle elegance define these contemporary pieces designed for modern aesthetes.</p>
+                                <a href="Collection.html#minimalist" class="collection-link">Discover More <i class='bx bx-right-arrow-alt'></i></a>
+                            </div>  
+                        </div>  
+                    </div>
+                </div>
+                <!-- Carousel Navigation -->
+                <div class="carousel-controls" data-aos="fade-up" data-aos-delay="10"> 
+                    <button id="prevBtn" class="carousel-arrow"><i class='bx bx-chevron-left'></i></button>
+                    <div class="carousel-indicators"></div>
+                    <button id="nextBtn" class="carousel-arrow"><i class='bx bx-chevron-right'></i></button>
+                </div>
+            </div>
+            
+            <div class="collection-footer" data-aos="fade-up" data-aos-delay="300">
+                <p>Each BRIS timepiece is meticulously crafted with exceptional attention to detail and precision.</p>
+                <a href="Collection.html" class="view-all-button">View All Collections</a>
+            </div>
+        </div>  
+    </section>
+
+    <!-- Newsletter Section -->  
+    <section class="newsletter" data-aos="fade-up"> 
+        <div class="container"> 
+            <div class="newsletter-content">  
+                <h2 class="section-title">Stay Updated</h2>  
+                <p>Subscribe to our newsletter for exclusive updates and special offers.</p>  
+                <form id="newsletterForm" class="newsletter-form"> 
+                    <div class="form-group">  
+                        <input type="email" id="emailInput" placeholder="Enter your email" required> 
+                        <span class="error-message"></span> 
+                    </div>  
+                    <button type="submit" class="submit-button">Subscribe</button> 
+                </form>  
+            </div>  
+        </div>  
+    </section>  
+        <!-- ... (rest of your index.html body) ... -->
+    <div id="toast-container"></div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
+
+    <!-- SCRIPTS (Order is important) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> 
+    <script src="supabase-client.js"></script> 
+    <script src="navbar-script.js"></script> 
+    <script src="script.js"></script> <!-- Your index.html specific script -->
+    
+    <script> 
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbarPlaceholder = document.getElementById('navbar-placeholder');
+            if (navbarPlaceholder) {
+                fetch('navbar.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        navbarPlaceholder.innerHTML = data;
+                        if (typeof window.initializeNavbar === 'function') {
+                            // console.log("index.html: Calling initializeNavbar after fetching navbar.html");
+                            window.initializeNavbar(); 
+                        }
+                    })
+                    .catch(error => console.error('Error loading navbar in index.html:', error));
+            }
+            // For pages without placeholder, navbar-script.js's DOMContentLoaded will call initializeNavbar
+        });
+    </script>
+</body>  
+</html>

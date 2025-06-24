@@ -1,0 +1,78 @@
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <img src="cm.png" alt="BRIS - Design Your Wrist" class="logo-image">
+        </a>
+        <div class="nav-links desktop-nav">
+            <a href="index.html">Home</a>
+            <a href="Collection.html">Collections</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="nav-icons">
+            <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">
+                <i class='bx bx-heart'></i>
+                <span class="icon-badge" id="wishlistBadge">0</span>
+            </button>
+            <a href="login.html" class="icon-btn user-icon" aria-label="User Profile/Login">
+                <i class='bx bx-user'></i>
+            </a>
+            <button class="icon-btn" id="cartBtn" aria-label="Shopping Cart">
+                <i class='bx bx-cart'></i>
+                <span class="icon-badge" id="cartBadge">0</span>
+            </button>
+            <button class="menu-btn" id="menuBtn" aria-label="Toggle Menu">
+                <i class='bx bx-menu'></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-nav-links">
+        <a href="index.html">Home</a>
+        <a href="Collection.html">Collections</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</div>
+
+<!-- Favorites Sliding Panel -->
+<div class="slide-panel" id="favoritesPanel">
+    <div class="slide-panel-header">
+        <h3>My Favorites</h3>
+        <button class="icon-btn close-panel-btn" id="closeFavoritesPanelBtn" aria-label="Close Favorites">
+            <i class='bx bx-x'></i>
+        </button>
+    </div>
+    <div class="slide-panel-content">
+        <p class="empty-message">Your favorites list is currently empty.</p>
+    </div>
+</div>
+
+<!-- Cart Sliding Panel -->
+<div class="slide-panel" id="cartPanel">
+    <div class="slide-panel-header">
+        <h3>Shopping Cart</h3>
+        <button class="icon-btn close-panel-btn" id="closeCartPanelBtn" aria-label="Close Cart">
+            <i class='bx bx-x'></i>
+        </button>
+    </div>
+    <div class="slide-panel-content">
+        <p class="empty-message">Your shopping cart is currently empty.</p>
+    </div>
+    <div class="slide-panel-footer">
+        <div class="subtotal">
+            <span>Subtotal:</span>
+            <span>$0.00</span>
+        </div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+</div>
+
+<!-- Toast Notification Container -->
+<div id="toast-container"></div>

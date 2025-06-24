@@ -1,0 +1,404 @@
+/* Navbar Specific Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-container {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    max-width: 1200px; /* Consistent with .container */
+    margin: 0 auto;    /* Consistent with .container */
+}
+
+.logo-image {
+    height: 60px;
+    width: auto;
+    display: block;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--foreground); /* Assumes --foreground is defined in main styles.css */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--foreground);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0; /* Added padding for better click area and active state */
+    position: relative; /* For active state indicator */
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary); /* Assumes --primary is defined */
+}
+
+.nav-links a.active::after { /* Simple underline for active link */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary);
+}
+
+
+.nav-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--foreground);
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.25rem; /* Main icon size */
+    transition: color 0.3s ease;
+    display: inline-flex; /* For proper alignment of <a> tags styled as buttons */
+    align-items: center; /* For <a> tags */
+    justify-content: center; /* For <a> tags */
+    text-decoration: none; /* For <a> tags */
+    position: relative; /* For badge positioning */
+}
+
+.icon-btn:hover,
+.icon-btn.active-icon { /* Added .active-icon for when panel is open */
+    color: var(--primary);
+}
+
+/* Badge Styles */
+.icon-badge {
+    position: absolute;
+    top: -2px; /* Adjust to position nicely */
+    right: -5px; /* Adjust to position nicely */
+    background-color: var(--primary, #007bff); /* Use primary color or a distinct badge color */
+    color: var(--button-text-color, #FFFFFF); /* Text color for badge */
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 0.7rem; /* Smaller font for badge number */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    pointer-events: none; /* So it doesn't interfere with clicks on the icon */
+    opacity: 0; /* Hidden by default */
+    transform: scale(0.5);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.icon-badge.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+.menu-btn {
+    display: none; /* Hidden by default, shown in media query */
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+    display: none; /* Initially hidden, JS will manage display:block for animation start */
+    position: fixed;
+    top: 64px; /* Below the navbar */
+    left: 0;
+    width: 100%;
+    background-color: var(--background, #18181B); /* Assumes --background is defined */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 999;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    transform: translateX(-100%); /* Start off-screen for slide-in animation */
+    transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu.active {
+    display: block; /* Make visible for animation */
+    transform: translateX(0%); /* Slide in */
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.mobile-nav-links a {
+    color: var(--foreground);
+    text-decoration: none;
+    padding: 1rem; /* Increased padding for easier tapping */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* More subtle separator */
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+.mobile-nav-links a:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav-links a:hover,
+.mobile-nav-links a.active {
+    color: var(--primary);
+    background-color: rgba(255,255,255,0.05);
+}
+
+/* Slide Panel General Styles (Favorites & Cart) */
+.slide-panel {
+    position: fixed;
+    top: 0;
+    right: -350px; /* Start off-screen. Adjust width if needed */
+    width: 350px;  /* Width of the sliding panel */
+    max-width: 90vw; /* Ensure panel isn't too wide on small screens */
+    height: 100vh;
+    background-color: var(--background, #18181B); /* Use theme background or a dark fallback */
+    z-index: 1010; /* Higher than navbar (1000) */
+    box-shadow: -5px 0px 15px rgba(0,0,0,0.2);
+    transition: right 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.slide-panel.active {
+    right: 0; /* Slide in */
+}
+
+.slide-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0; /* Prevent header from shrinking */
+    height: 64px; /* Align with navbar height */
+    box-sizing: border-box;
+}
+
+.slide-panel-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--foreground, #FFFFFF);
+}
+
+.slide-panel .close-panel-btn { /* Styles for close buttons inside panels */
+    font-size: 1.5rem; /* Make X icon larger */
+    padding: 0.25rem;
+}
+.slide-panel .close-panel-btn:hover {
+    color: var(--primary, #007bff);
+}
+
+.slide-panel-content {
+    padding: 1.5rem;
+    overflow-y: auto;
+    flex-grow: 1; /* Allow content to take remaining space and scroll */
+    color: var(--foreground, #FFFFFF);
+}
+
+.slide-panel-content p.empty-message { /* Specific styling for the placeholder text */
+    margin-top: 0;
+    color: var(--foreground-muted, #a0a0a0); /* Slightly dimmer text for placeholders */
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.slide-panel-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0; /* Prevent footer from shrinking */
+    background-color: var(--background-alt, var(--background, #1c1c1e)); /* Optional: slightly different bg for footer */
+}
+
+.slide-panel-footer .subtotal {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: var(--foreground, #FFFFFF);
+}
+.slide-panel-footer .subtotal span:last-child {
+    font-weight: bold;
+    color: var(--primary, #007bff);
+}
+
+.slide-panel-footer .checkout-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--primary, #007bff);
+    color: var(--button-text-color, #FFFFFF);
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+.slide-panel-footer .checkout-btn:hover {
+    background-color: var(--primary-dark, #0056b3); /* Assumes --primary-dark is defined */
+}
+
+/* Example Panel Item Styles (Shared between Favorites & Cart) */
+.panel-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.panel-item:last-child {
+    border-bottom: none;
+}
+.panel-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+.panel-item .item-details {
+    flex-grow: 1;
+    min-width: 0; /* Prevents overflow issues with long text */
+}
+.panel-item .item-details h4 {
+    margin: 0 0 0.25rem 0;
+    font-size: 0.9rem;
+    color: var(--foreground, #FFFFFF);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.panel-item .item-details p { /* For price or other small details */
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--primary, #007bff);
+}
+.panel-item .item-quantity input { /* Specific to cart items */
+    width: 50px;
+    padding: 0.25rem;
+    text-align: center;
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--foreground);
+    border-radius: 3px;
+    -moz-appearance: textfield; /* Firefox */
+}
+.panel-item .item-quantity input::-webkit-outer-spin-button,
+.panel-item .item-quantity input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.panel-item .remove-item-btn { /* For remove buttons in items */
+    font-size: 1.1rem; /* Slightly smaller than panel close */
+    padding: 0.25rem;
+    color: var(--foreground-muted, #a0a0a0);
+    flex-shrink: 0;
+}
+.panel-item .remove-item-btn:hover {
+    color: var(--danger, #dc3545); /* Assumes --danger color is defined for destructive actions */
+}
+
+/* Overlay for when panels are open */
+.page-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998; /* Below mobile menu (999) and slide panels (1010), but above page content */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0s 0.3s linear;
+}
+.page-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out, visibility 0s 0s linear;
+}
+
+/* Body state when a panel or mobile menu is open */
+body.no-scroll {
+    overflow: hidden;
+}
+
+
+/* Responsive adjustments for Navbar */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 1rem; /* Ensure padding is consistent */
+    }
+    .desktop-nav {
+        display: none;
+    }
+    .menu-btn {
+        display: block; /* Display hamburger menu button */
+    }
+
+    /* Make slide panels slightly less wide on smaller screens if 350px is too much */
+    .slide-panel {
+        width: 300px;
+        right: -300px;
+    }
+    .slide-panel.active {
+        right: 0;
+    }
+
+    .mobile-menu { /* Ensure mobile menu is accessible */
+        top: 64px; /* Correctly positioned below navbar */
+    }
+}
+
+@media (max-width: 400px) {
+    .slide-panel {
+        width: 100vw; /* Full width on very small screens */
+        right: -100vw;
+        max-width: 100vw;
+        border-left: none; /* No need for border if full width */
+    }
+    .slide-panel.active {
+        right: 0;
+    }
+    .slide-panel-header, .slide-panel-content, .slide-panel-footer {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Add to your existing toast styles in navbar-styles.css */
+.toast-loading {
+    background-color: #6c757d; /* A neutral grey or your brand's secondary color */
+    color: white;
+}
+.toast-loading i.bx-spin {
+    animation: bx-spin 1.5s linear infinite;
+}
+
+/* Ensure bx-spin animation is defined if not by default */
+@keyframes bx-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

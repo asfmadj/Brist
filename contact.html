@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Brist - Let's Create Together</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="navbar-styles.css"> 
+    <link rel="stylesheet" href="contact-style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="cm.png" alt="BRIS - Design Your Wrist" class="logo-image">
+            </a>
+            <div class="nav-links desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="Collection.html">Collections</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a> 
+            </div>
+            <div class="nav-icons">
+                <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">
+                    <i class='bx bx-heart'></i>
+                    <span class="icon-badge" id="wishlistBadge">0</span>
+                </button>
+                <a href="login.html" class="icon-btn user-icon" aria-label="User Profile/Login">
+                    <i class='bx bx-user'></i>
+                </a>
+                <button class="icon-btn" id="cartBtn" aria-label="Shopping Cart">
+                    <i class='bx bx-cart'></i>
+                    <span class="icon-badge" id="cartBadge">0</span>
+                </button>
+                <button class="menu-btn" id="menuBtn" aria-label="Toggle Menu">
+                    <i class='bx bx-menu'></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Collection.html">Collections</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <!-- Login/Logout links will be managed by JS here -->
+        </div>
+    </div>
+
+    <!-- Favorites Sliding Panel -->
+    <div class="slide-panel" id="favoritesPanel">
+        <div class="slide-panel-header">
+            <h3>My Favorites</h3>
+            <button class="icon-btn close-panel-btn" id="closeFavoritesPanelBtn" aria-label="Close Favorites">
+                <i class='bx bx-x'></i>
+            </button>
+        </div>
+        <div class="slide-panel-content">
+            <!-- Favorite items will be rendered here by JS -->
+            <p class="empty-message">Your favorites list is currently empty.</p>
+        </div>
+    </div>
+
+    <!-- Cart Sliding Panel -->
+    <div class="slide-panel" id="cartPanel">
+        <div class="slide-panel-header">
+            <h3>Shopping Cart</h3>
+            <button class="icon-btn close-panel-btn" id="closeCartPanelBtn" aria-label="Close Cart">
+                <i class='bx bx-x'></i>
+            </button>
+        </div>
+        <div class="slide-panel-content">
+            <!-- Cart items will be rendered here by JS -->
+            <p class="empty-message">Your shopping cart is currently empty.</p>
+        </div>
+        <div class="slide-panel-footer">
+            <div class="subtotal">
+                <span>Subtotal:</span>
+                <span>$0.00</span> <!-- Will be updated by JS -->
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+    <!-- End of Navbar HTML components -->
+
+    <header class="contact-header">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p class="subtitle">We're here to assist you with your design journey, answer your questions, or discuss collaborations. Let's connect and create something extraordinary.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <div class="container">
+                <h2 class="contact-section-title" data-animate>Connect With Brist</h2>
+                <div class="contact-content-wrapper">
+                    <div class="contact-form-container" data-animate data-delay="0.2s">
+                        <h3>Send Us a Message</h3>
+                        <form id="bristContactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message / Inquiry</label>
+                                <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-button">Send Message</button>
+                        </form>
+                    </div>
+
+                    <div class="contact-info-container" data-animate data-delay="0.4s">
+                        <h3>Contact Information</h3>
+                        
+                        <div class="contact-info-item">
+                            <span class="icon">✉️</span>
+                            <div class="details">
+                                <h4>Email Us</h4>
+                                <p><a href="mailto:concierge@brist.com">concierge@brist.com</a></p>
+                                <p>For design consultations & general inquiries.</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <span class="icon">📞</span>
+                            <div class="details">
+                                <h4>Call Us</h4>
+                                <p><a href="tel:+91834567890">+91 (834) 567-8900</a></p>
+                                <p>Monday - Friday, 9 AM - 6 PM (GMT+5:30)</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <span class="icon">📍</span>
+                            <div class="details">
+                                <h4>Visit Our Design Studio (By Appointment)</h4>
+                                <p>93 First Floor, 93 First Floor, Nehru Bazar<br>Udaipur, Surajpole-313001</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <span class="icon">🕒</span>
+                            <div class="details">
+                                <h4>Studio Hours</h4>
+                                <p>Monday - Friday: 10:00 AM - 5:00 PM</p>
+                                <p>Saturday: By Appointment Only</p>
+                                <p>Sunday: Closed</p>
+                            </div>
+                        </div>
+
+                         <div class="map-container" data-animate data-delay="0.5s">
+                            <img src="ab/conta.jpg" alt="Map pointing to Brist Design Studio location">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>© 2024 Brist. Design Your Wrist.</p>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal-overlay"> <!-- Removed style="display: none;" control with CSS class -->
+        <div class="modal-content">
+            <button id="closeSuccessModalBtn" class="modal-close-btn" aria-label="Close modal">×</button>
+            <div class="modal-icon success-icon">
+                <i class='bx bx-check-circle'></i>
+            </div>
+            <h2>Message Sent!</h2>
+            <p id="successModalMessage">Thank you for your message. We'll be in touch shortly.</p>
+            <button id="successModalOkBtn" class="modal-action-btn">OK</button>
+        </div>
+    </div>
+    
+    <div id="toast-container"></div> <!-- For error toasts -->
+
+    <!-- SCRIPTS - ORDER IS IMPORTANT -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> 
+    <script src="supabase-client.js"></script> 
+    <script src="navbar-script.js"></script> <!-- Defines window.showToast and initializeNavbar -->
+    <script src="contact-script.js"></script>
+
+    <!-- 
+        The call to initializeNavbar() here is redundant if navbar-script.js 
+        already has its own DOMContentLoaded listener that calls it.
+        You can remove this if navbar-script.js handles its own initialization.
+        Leaving it might cause initializeNavbar to run twice, which is usually harmless
+        if the function is idempotent (safe to call multiple times).
+    -->
+    <!-- 
+    <script>
+        if (typeof initializeNavbar === 'function') {
+            initializeNavbar(); // This call might be redundant
+        }
+    </script> 
+    -->
+</body>
+</html>

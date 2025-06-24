@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Supabase CDN Test</title>
+</head>
+<body>
+    <h1>Testing Supabase CDN and Client Initialization</h1>
+    <p>Check the console for messages.</p>
+
+    <!-- 1. Supabase Library from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- 2. Your Supabase Client Initializer (inline for testing) -->
+    <script>
+        console.log("test-supabase.html: Inline script started.");
+
+        // --- REPLACE WITH YOUR ACTUAL CREDENTIALS ---
+        const MY_SUPABASE_URL = 'https://onqioqjflhyxtuvofeee.supabase.co'; 
+        const MY_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9ucWlvcWpmbGh5eHR1dm9mZWVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAwMTAwOTEsImV4cCI6MjA2NTU4NjA5MX0.26H-1pQ19QosCvcgRut0FzXkDfIoUa9M8g0gUTZsZu4';
+        // --- -------------------------------------- ---
+
+        console.log("test-supabase.html: Credentials - URL:", MY_SUPABASE_URL, "Key Set:", !!MY_SUPABASE_ANON_KEY);
+
+        if (!MY_SUPABASE_URL || MY_SUPABASE_URL === 'YOUR_PROJECT_URL_HERE') { // Check if still placeholder
+            console.error("test-supabase.html: Supabase URL is not defined or is still the placeholder. Please configure.");
+            alert("CONFIGURATION ERROR (test page): Supabase URL missing or placeholder.");
+        }
+        if (!MY_SUPABASE_ANON_KEY || MY_SUPABASE_ANON_KEY === 'YOUR_ANON_PUBLIC_KEY_HERE') { // Check if still placeholder
+            console.error("test-supabase.html: Supabase Anon Key is not defined or is still the placeholder. Please configure.");
+            alert("CONFIGURATION ERROR (test page): Supabase Key missing or placeholder.");
+        }
+
+        if (typeof supabase !== 'undefined' && typeof supabase.createClient === 'function') {
+            console.log("test-supabase.html: Global 'supabase' (from CDN) IS available.");
+            try {
+                window.myTestSupabaseClient = supabase.createClient(MY_SUPABASE_URL, MY_SUPABASE_ANON_KEY);
+                
+                if (window.myTestSupabaseClient) {
+                    console.log("test-supabase.html: window.myTestSupabaseClient INITIALIZED SUCCESSFULLY.");
+                    alert("SUCCESS (test page): Supabase client initialized!");
+
+                    // Optional: Test a simple read operation (if you have a public 'products' table with RLS allowing anon read)
+                    /*
+                    async function testRead() {
+                        try {
+                            console.log("test-supabase.html: Attempting to read 'products' table...");
+                            const { data, error } = await window.myTestSupabaseClient.from('products').select('*').limit(1);
+                            if (error) {
+                                console.error("test-supabase.html: Error reading from 'products':", error);
+                                alert("Test Read Error: " + error.message);
+                            } else {
+                                console.log("test-supabase.html: Successfully read from 'products':", data);
+                                alert("Test Read Success! Check console for data.");
+                            }
+                        } catch (readError) {
+                            console.error("test-supabase.html: Exception during test read:", readError);
+                            alert("Test Read Exception: " + readError.message);
+                        }
+                    }
+                    testRead();
+                    */
+
+                } else {
+                    console.error("test-supabase.html: supabase.createClient() returned null/undefined.");
+                    alert("ERROR (test page): Failed to create Supabase client instance.");
+                }
+            } catch (e) {
+                console.error("test-supabase.html: ERROR during supabase.createClient():", e);
+                alert("ERROR (test page): Exception during Supabase client creation. Check URL/Key format.");
+            }
+        } else {
+            console.error("test-supabase.html: Global 'supabase' (from CDN) is NOT available or createClient is missing.");
+            alert("CRITICAL ERROR (test page): Core Supabase library not loaded from CDN or not exposing 'createClient'.");
+        }
+        console.log("test-supabase.html: Inline script finished.");
+    </script>
+
+</body>
+</html>

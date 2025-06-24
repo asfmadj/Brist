@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeless Precision - Watch Collections</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="navbar-styles.css">
+    <link rel="stylesheet" href="collection-style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="cm.png" alt="BRIS - Design Your Wrist" class="logo-image">
+            </a>
+            <div class="nav-links desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="Collection.html">Collections</a> 
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">
+                    <i class='bx bx-heart'></i>
+                    <span class="icon-badge" id="wishlistBadge">0</span>
+                </button>
+                <a href="login.html" class="icon-btn user-icon" aria-label="User Profile/Login">
+                    <i class='bx bx-user'></i>
+                </a>
+                <button class="icon-btn" id="cartBtn" aria-label="Shopping Cart">
+                    <i class='bx bx-cart'></i>
+                    <span class="icon-badge" id="cartBadge">0</span>
+                </button>
+                <button class="menu-btn" id="menuBtn" aria-label="Toggle Menu">
+                    <i class='bx bx-menu'></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <a href="Collection.html">Collections</a> 
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
+    <!-- Favorites Sliding Panel -->
+    <div class="slide-panel" id="favoritesPanel">
+        <div class="slide-panel-header">
+            <h3>My Favorites</h3>
+            <button class="icon-btn close-panel-btn" id="closeFavoritesPanelBtn" aria-label="Close Favorites">
+                <i class='bx bx-x'></i>
+            </button>
+        </div>
+        <div class="slide-panel-content">
+            <p class="empty-message">Your favorites list is currently empty.</p>
+        </div>
+    </div>
+
+    <!-- Cart Sliding Panel -->
+    <div class="slide-panel" id="cartPanel">
+        <div class="slide-panel-header">
+            <h3>Shopping Cart</h3>
+            <button class="icon-btn close-panel-btn" id="closeCartPanelBtn" aria-label="Close Cart">
+                <i class='bx bx-x'></i>
+            </button>
+        </div>
+        <div class="slide-panel-content">
+            <p class="empty-message">Your shopping cart is currently empty.</p>
+        </div>
+        <div class="slide-panel-footer">
+            <div class="subtotal">
+                <span>Subtotal:</span>
+                <span>$0.00</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+    <!-- End of Navbar HTML components -->
+
+    <header class="hero animate-on-scroll fade-in">
+         <div class="hero-video-container">
+            <video class="hero-video" autoplay loop muted playsinline poster="collection/1.jpg"> 
+                <source src="collection/0.mp4" type="video/mp4">
+                <img src="collection/1.jpg" alt="Montage of elegant timepieces">
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="main-title">Timeless Precision</h1>
+            <p class="hero-subtitle">Discover Collections Where Craftsmanship Meets Legacy.</p>
+        </div>
+        <div class="scroll-down" aria-hidden="true"></div>
+    </header>
+
+    <main>
+        <!-- Classic Collection -->
+        <section class="content-section classic-collection">
+            <div class="container">
+                <div class="text-container animate-on-scroll slide-in-left">
+                    <h2 class="h2-with-line">The Classic Collection</h2>
+                    <p class="lead">Enduring elegance for the modern connoisseur.</p>
+                    <p>Defined by refined details, minimalist dials, and versatile designs, these timepieces offer understated sophistication perfect for any occasion, transitioning seamlessly from day to night.</p>
+                    <p><a href="shop.html?category=classic">Explore Classics <i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
+                </div>
+                <div class="image-container animate-on-scroll slide-in-right">
+                    <img src="collection/2.jpg" alt="Elegant Classic Watch with leather strap">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sports Collection -->
+        <section class="content-section sports-collection">
+            <div class="container">
+                 <div class="text-container animate-on-scroll slide-in-right">
+                     <h2 class="h2-with-line">SPORTS PERFORMANCE</h2>
+                     <p class="lead">Engineered for Action, Designed for Life.</p>
+                     <p>Robust construction meets dynamic aesthetics. Combining durability, precision timing, and bold features, this collection is built to keep pace with your active lifestyle.</p>
+                     <p><a href="shop.html?category=sports">Discover Sports <i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
+                 </div>
+                 <div class="image-container animate-on-scroll slide-in-left">
+                     <img src="collection/3.jpeg" alt="Modern Sports Watch with highlighted features">
+                 </div>
+            </div>
+        </section>
+
+        <!-- Heritage Collection -->
+        <section class="content-section heritage-collection">
+            <div class="container">
+                <div class="text-content animate-on-scroll slide-in-left">
+                    <h2 class="h2-with-line">Heritage Revisited</h2>
+                    <p class="lead">Celebrating a Legacy of Watchmaking Excellence.</p>
+                    <p>Drawing inspiration from our archives, the Heritage Collection pays homage to iconic designs of the past, reinterpreted with contemporary craftsmanship and materials.</p>
+                    <h3>Legacy Reimagined.</h3>
+                    <p><a href="shop.html?category=heritage">View Heritage Pieces <i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
+                </div>
+                 <div class="image-container animate-on-scroll slide-in-right">
+                     <img src="collection/5.jpeg" alt="Detailed close-up of a Heritage watch face showing intricate details">
+                </div>
+            </div>
+        </section>
+
+         <!-- Minimalist Collection -->
+         <section class="content-section minimalist-collection">
+            <div class="container">
+                 <div class="text-content animate-on-scroll fade-in">
+                     <h2 class="h2-with-line">Pure Minimalism</h2>
+                     <p class="lead">Simplicity elevated. Discover clarity in design where less becomes the ultimate expression of luxury.</p>
+                     <p><a href="shop.html?category=minimalistic">Explore Minimalism <i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
+                 </div>
+                 <div class="minimalist-image-container animate-on-scroll slide-up">
+                     <img src="collection/minilist collection.png"
+                          alt="Showcase of the Minimalist Watch collection against a clean background"
+                          class="minimalist-section-image">
+                 </div>
+            </div>
+        </section>
+
+        <!-- Exclusive Collection -->
+        <section class="content-section exclusive-collection">
+            <div class="container">
+                <div class="exclusive-content animate-on-scroll fade-in">
+                    <h2>The Exclusive Collection</h2>
+                    <p class="exclusive-subtitle">
+                        Discover limited edition timepieces and unique collaborations, showcasing the pinnacle of horological artistry and innovation.
+                    </p>
+                     <p><a href="shop.html?category=exclusive">Discover Exclusives <i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2024 Timeless Precision. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- ... rest of shop.html body ... -->
+    <div id="toast-container"></div> <!-- Don't forget this! -->
+
+    <!-- SCRIPTS - ORDER IS IMPORTANT -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> 
+    <script src="supabase-client.js"></script> 
+    <script src="navbar-script.js"></script>
+    <script src="collection-script.js"></script>
+    
+    <script>
+        if (typeof initializeNavbar === 'function') {
+            initializeNavbar();
+        }
+    </script>
+</body>
+</html>
